@@ -57,7 +57,7 @@
     "stylus-loader": "3.0.2",
     "webpack": "4.17.1",
     "webpack-cli": "3.1.0",
-    "webpack-dev-server": "3.1.5",
+    "webpack-dev-server": ">=3.1.11",
     "webpack-merge": "4.1.4"
   },
   "dependencies": {
@@ -65,7 +65,7 @@
     "classnames": "2.2.6",
     "express": "^4.16.4",
     "fs": "0.0.1-security",
-    "lodash": "4.17.10",
+    "lodash": ">=4.17.11",
     "prop-types": "15.6.2",
     "react": "16.4.2",
     "react-dom": "16.4.2",
