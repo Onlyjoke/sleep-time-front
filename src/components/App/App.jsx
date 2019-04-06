@@ -6,7 +6,7 @@ import Preloader from '../Preloader/Preloader';
 import css from './App.styl';
 
 const App = (props) => {
-    const { times } = props;
+    const { time } = props;
     const sleepToday = [];
 
     function formatTime(time) {
@@ -29,34 +29,34 @@ const App = (props) => {
         return `(${hours} ч ${minutes} м)`;
     }
 
-    function renderTimes() {
+    function renderTime() {
         return (
             <div>
                 {
-                    times.data.map((item, index) => {
+                    time.data.map((item, index) => {
                         const action = item.action === 'woke_up' && 'Проснулась' ||
                             item.action === 'goto_sleep' && 'Уснула' ||
                             item.action === 'to_poop' && 'Покакала';
                         let differ;
-                        const timesToday = new Date(item.createdAt).getDate();
+                        const timeToday = new Date(item.createdAt).getDate();
                         const today = new Date().getDate();
 
                         if (item.action === 'woke_up') {
-                            const goToSleep = times.data[index].createdAt;
+                            const goToSleep = time.data[index].createdAt;
                             let wokeUp;
 
-                            for (let i = index; i < times.data.length; i--) {
-                                if (times.data[i].action === 'goto_sleep') {
-                                    wokeUp = times.data[i].createdAt;
+                            for (let i = index; i < time.data.length; i--) {
+                                if (time.data[i].action === 'goto_sleep') {
+                                    wokeUp = time.data[i].createdAt;
                                     break;
                                 }
                             }
                             differ = new Date(goToSleep).getTime() - new Date(wokeUp).getTime();
-                            today === timesToday && sleepToday.push(differ);
+                            today === timeToday && sleepToday.push(differ);
                         }
 
                         return (
-                            today === timesToday &&
+                            today === timeToday &&
                             <div
                                 key={index}
                                 className={css.table__row}
@@ -81,7 +81,7 @@ const App = (props) => {
                                 </div>
                             </div>
                         );
-                    })
+                    }).reverse()
                 }
                 <div className={css.today}>
                     Спала сегодня {msToTime(sleepToday.length > 1 && sleepToday.reduce((prev, next) => prev + next))}
@@ -121,7 +121,7 @@ const App = (props) => {
                         Покакала
                     </div>
                     <div className={css.table}>
-                        {renderTimes()}
+                        {renderTime()}
                     </div>
                 </div>
             </div>
@@ -130,7 +130,7 @@ const App = (props) => {
 };
 
 App.propTypes = {
-    times: PropTypes.object.isRequired
+    time: PropTypes.object.isRequired
 };
 
-export default Preloader('times')(App);
+export default Preloader('time')(App);

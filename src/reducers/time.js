@@ -1,4 +1,4 @@
-export default function times(state = {}, action) {
+export default function time(state = {}, action) {
     if (action.type === 'FETCH_ALL_DATA_SUCCESS') {
         const data = action.payload;
 

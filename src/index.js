@@ -18,7 +18,7 @@ const store = configureStore();
 window.store = store;
 
 store.subscribe(throttle(() => {
-    saveState({ times: store.getState().times });
+    saveState({ time: store.getState().time });
 }), 1000);
 
 const render = (Component) => {

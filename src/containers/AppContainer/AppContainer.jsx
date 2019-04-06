@@ -18,8 +18,8 @@ class AppContainer extends React.Component {
     constructor(props) {
         super(props);
 
-        const { times } = this.props;
-        const isDay = (Object.keys(times).length !== 0 && times.data[times.data.length - 1].action === 'woke_up') || false;
+        const { time } = this.props;
+        const isDay = (Object.keys(time).length !== 0 && time.data[time.data.length - 1].action === 'woke_up') || false;
 
         this.state = {
             isDay
@@ -51,12 +51,12 @@ class AppContainer extends React.Component {
     };
 
     render() {
-        const { times } = this.props;
+        const { time } = this.props;
         const { isDay } = this.state;
 
         return (
             <App
-                times={times}
+                time={time}
                 isDay={isDay}
                 handleClick={this.handleClick}
                 delAction={this.delAction}
@@ -65,9 +65,9 @@ class AppContainer extends React.Component {
     }
 }
 
-const mapStateToProps = ({ times }) => {
+const mapStateToProps = ({ time }) => {
     return {
-        times
+        time
     };
 };
 
