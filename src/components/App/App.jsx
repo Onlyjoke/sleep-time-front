@@ -46,11 +46,16 @@ const App = (props) => {
                             let wokeUp;
 
                             for (let i = index; i < time.data.length; i--) {
+                                if (time.data[i] === undefined) {
+                                    break;
+                                }
+
                                 if (time.data[i].action === 'goto_sleep') {
                                     wokeUp = time.data[i].createdAt;
                                     break;
                                 }
                             }
+
                             differ = new Date(goToSleep).getTime() - new Date(wokeUp).getTime();
                             today === timeToday && sleepToday.push(differ);
                         }
