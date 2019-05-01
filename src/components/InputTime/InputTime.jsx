@@ -16,6 +16,7 @@ const InputTime = (props) => {
                         <div
                             onClick={() => props.saveChangedTime()}
                             className={css.btnSave}
+                            onTouchEnd={() => props.saveChangedTime()}
                         >
                             Save
                         </div>
