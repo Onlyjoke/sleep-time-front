@@ -22,8 +22,7 @@ const InputTime = (props) => {
                     </div>
                     :
                     <div
-                        onDoubleClick={props.handleDblClickChange}
-                        onTouchStart={props.handleDblClickChange}
+                        onClick={props.handleClickChange}
                     >
                         {props.time}
                     </div>

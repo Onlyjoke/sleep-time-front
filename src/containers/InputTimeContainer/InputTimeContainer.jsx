@@ -13,7 +13,7 @@ class InputTimeContainer extends React.Component {
         };
     }
 
-    handleDblClickChange = () => {
+    handleClickChange = () => {
         this.setState({
             isChanging: true
         })
@@ -49,7 +49,7 @@ class InputTimeContainer extends React.Component {
             <InputTime
                 time={time}
                 isChanging={isChanging}
-                handleDblClickChange={this.handleDblClickChange}
+                handleClickChange={this.handleClickChange}
                 saveChangedTime={this.saveChangedTime}
                 handleTimeChange={this.handleTimeChange}
             />
