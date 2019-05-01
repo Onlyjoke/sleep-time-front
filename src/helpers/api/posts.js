@@ -1,9 +1,9 @@
 import axios from 'axios';
 
 export default {
-    getAllData: () => axios.get('http://0.0.0.0:3030/actions')
+    getAllData: () => axios.get('https://st-back1.herokuapp.com/actions')
         .then((response) => response),
-    setAction: (action) => axios.post('http://0.0.0.0:3030/action', { action }),
-    delAction: (id) => axios.delete(`http://0.0.0.0:3030/action/${id}`),
-    updateTime: (id, createdAt) => axios.put(`http://0.0.0.0:3030/action/update/${id}`, { createdAt })
+    setAction: (action) => axios.post('https://st-back1.herokuapp.com/action', { action }),
+    delAction: (id) => axios.delete(`https://st-back1.herokuapp.com/action/${id}`),
+    updateTime: (id, createdAt) => axios.put(`https://st-back1.herokuapp.com/action/update/${id}`, { createdAt })
 };
