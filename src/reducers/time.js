@@ -19,5 +19,19 @@ export default function time(state = {}, action) {
         };
     }
 
+    if (action.type === 'FETCH_UPDATE_TIME_SUCCESS') {
+        const { id, createdAt } = action.payload;
+        const newTimeData = state.data ? state.data.slice() : [];
+        const currentIndex = newTimeData.findIndex((arr) => arr._id === id);
+
+        newTimeData[currentIndex].createdAt = createdAt;
+
+        return {
+            ...state,
+            data: newTimeData
+        };
+
+    }
+
     return state;
 }

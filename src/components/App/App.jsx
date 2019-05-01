@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import shortid from 'shortid';
 
 import Preloader from '../Preloader/Preloader';
 import css from './App.styl';
+import InputTimeContainer from "../../containers/InputTimeContainer/InputTimeContainer";
 
 const App = (props) => {
     const { time } = props;
@@ -63,11 +65,14 @@ const App = (props) => {
                         return (
                             today === timeToday &&
                             <div
-                                key={index}
+                                key={shortid.generate()}
                                 className={css.table__row}
                             >
                                 <div className={css.table__cell}>
-                                    {isoDateToDate(item.createdAt)}
+                                    <InputTimeContainer
+                                        time={isoDateToDate(item.createdAt)}
+                                        itemId={item._id}
+                                    />
                                 </div>
                                 <div className={css.table__cell}>
                                     {action}

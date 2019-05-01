@@ -27,3 +27,15 @@ export const delAction = (id, index) => (dispatch) => {
         });
     })
 };
+
+export const updateTime = (id, createdAt) => (dispatch) => {
+    postsApi.updateTime(id, createdAt).then(() => {
+        dispatch({
+            type: 'FETCH_UPDATE_TIME_SUCCESS',
+            payload: {
+                id,
+                createdAt
+            }
+        })
+    })
+};

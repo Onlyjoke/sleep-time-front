@@ -19,7 +19,7 @@ class AppContainer extends React.Component {
         super(props);
 
         const { time } = this.props;
-        const isDay = (Object.keys(time).length !== 0 && time.data.action && time.data[time.data.length - 1].action === 'woke_up') || false;
+        const isDay = (Object.keys(time).length !== 0 && time.data[time.data.length - 1].action === 'woke_up') || false;
 
         this.state = {
             isDay
