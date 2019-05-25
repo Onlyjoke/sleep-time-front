@@ -61,7 +61,8 @@ const App = (props) => {
                             }
 
                             differ = new Date(goToSleep).getTime() - new Date(wokeUp).getTime();
-                            today === timeToday && sleepToday.push(differ);
+                            currentMonth + 1 === dataMonth + 1 &&
+                            timeToday === today && sleepToday.push(differ);
                         }
 
                         return (
