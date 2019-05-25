@@ -40,6 +40,8 @@ const App = (props) => {
                             item.action === 'goto_sleep' && 'Уснула' ||
                             item.action === 'to_poop' && 'Покакала';
                         let differ;
+                        const dataMonth = new Date(item.createdAt).getMonth();
+                        const currentMonth = new Date().getMonth();
                         const timeToday = new Date(item.createdAt).getDate();
                         const today = new Date().getDate();
 
@@ -63,7 +65,8 @@ const App = (props) => {
                         }
 
                         return (
-                            today === timeToday &&
+                            currentMonth + 1 === dataMonth + 1 &&
+                            timeToday === today &&
                             <div
                                 key={shortid.generate()}
                                 className={css.table__row}
