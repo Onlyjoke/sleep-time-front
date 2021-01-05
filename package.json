@@ -61,7 +61,7 @@
     "webpack-merge": "4.1.4"
   },
   "dependencies": {
-    "axios": "0.18.0",
+    "axios": "0.21.1",
     "classnames": "2.2.6",
     "express": "^4.16.4",
     "fs": "0.0.1-security",
